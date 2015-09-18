@@ -6,12 +6,14 @@ function Pizza(quantity, toppings, pizzaSize) {
 
 Pizza.prototype.calculatePrice = function() {
   var pizzaSize = this.pizzaSize;
-  sizeCost = null;
-  
+  var sizeCost = null;
+
   if (pizzaSize === "Small") {
-    var sizeCost = 7;
+    sizeCost = 7;
   } else if (pizzaSize === "Medium") {
-    var sizeCost = 10;
+    sizeCost = 10;
+  } else if (pizzaSize === "Large") {
+    sizeCost = 13;
   }
   var finalPrice = this.quantity * (this.toppings.length + sizeCost);
   return finalPrice;

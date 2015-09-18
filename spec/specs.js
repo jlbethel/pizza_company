@@ -22,4 +22,14 @@ describe('Pizza', function() {
     var testPizza = new Pizza(1, ["Mushrooms"], "Medium");
     expect(testPizza.calculatePrice()).to.equal(11);
   });
+
+  it("calculates the cost of a Large pizza with multiple toppings", function () {
+    var testPizza = new Pizza(1, ["Mushrooms", "Pepperoni", "ExtraCheese"], "Large");
+    expect(testPizza.calculatePrice()).to.equal(16);
+  });
+
+  it("calculates the cost of a Large pizza with multiple toppings and a quantity greater than one", function () {
+    var testPizza = new Pizza(3, ["Mushrooms", "Pepperoni", "ExtraCheese"], "Large");
+    expect(testPizza.calculatePrice()).to.equal(48);
+  });
 });
