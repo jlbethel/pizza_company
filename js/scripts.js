@@ -8,11 +8,11 @@ Pizza.prototype.calculatePrice = function() {
   var pizzaSize = this.pizzaSize;
   var sizeCost = null;
 
-  if (pizzaSize === "Small") {
+  if (pizzaSize === "small") {
     sizeCost = 7;
-  } else if (pizzaSize === "Medium") {
+  } else if (pizzaSize === "medium") {
     sizeCost = 10;
-  } else if (pizzaSize === "Large") {
+  } else if (pizzaSize === "large") {
     sizeCost = 13;
   }
   var finalPrice = this.quantity * (this.toppings.length + sizeCost);
