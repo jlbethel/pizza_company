@@ -1,6 +1,6 @@
-/*#show-pizza {
+#show-pizza {
   display: none;
-}*/
+}
 
 ul {
   list-style: none;
@@ -22,3 +22,7 @@ ul {
 .pizza:hover {
   text-decoration: underline;
 }
+
+/*.calculate {
+  display: none;
+}*/
