@@ -21,16 +21,39 @@ Pizza.prototype.calculatePrice = function() {
   return finalPrice;
 }
 
+//Reset form fields
+function resetFields() {
+  $("input#quantity").val("");
+  $("#pizzaSize").val("");
+  $("input#pizzaName").val("");
+  $('input:checkbox').removeAttr('checked');
+}
+
 //Jquery
 $(document).ready(function() {
 
-  $("#add-pizza").click(function() {
+  //Add Pizza to pizzas ul in html
+  $("#add-pizza").submit(function(event) {
+    event.preventDefault();
+    
+    $("#show-pizzas").fadeIn(900);
     var selectedPizzaName = $("input#pizzaName").val();
-    $("ul#pizzas").append("<li><span class='pizza animated bounceInLeft'>" + selectedPizzaName + "</span></li>");
+    $("ul#pizzas").append("<li><span class='pizza'>" + selectedPizzaName + "</span></li>");
+
+    resetFields();
   });
 
-  $("")
+  //Show pizza properties when clicked on
+  $(".pizza").on('click', function () {
+    $("#show-pizza").fadeIn(900);
 
+    $("#show-pizza h2").text(selectedPizzaName);
+    $(".pizzaSize").text(selectedPizzaSize);
+    $(".toppings").text(selectedToppings);
+    $(".quantity").text(selectedQuantity);
+  });
+
+  //Form Submission
   $("form#new-order").submit(function(event) {
     event.preventDefault();
     //Get Pizza properties from html form
@@ -47,8 +70,10 @@ $(document).ready(function() {
     var newPizza = new Pizza(selectedQuantity, selectedToppings, selectedPizzaSize);
     var calculatedPrice = newPizza.calculatePrice();
 
-    //Give calculated price to html total span
+    //Give calculated price to total span
+    $(".total").fadeIn(900);
     $("#total").text(calculatedPrice);
 
+    resetFields();
   });
 });
