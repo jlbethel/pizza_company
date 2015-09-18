@@ -12,4 +12,9 @@ describe('Pizza', function() {
     expect(testPizza.toppings).to.eql(["Mushrooms", "Extra Cheese", "Pepperoni"]);
     expect(testPizza.pizzaSize).to.equal("Medium");
   });
+
+  it("calculates the cost of a pizza", function () {
+    var testPizza = new Pizza(1, ["Mushrooms"], "Medium");
+    expect(testPizza.calculatePrice).to.equal("$11");
+  })
 });
