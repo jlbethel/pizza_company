@@ -24,24 +24,28 @@ Pizza.prototype.calculatePrice = function() {
 //Jquery
 $(document).ready(function() {
 
+  $("#add-pizza").click(function() {
+    var selectedPizzaName = $("input#pizzaName").val();
+    $("ul#pizzas").append(selectedPizzaName);
+  });
 
   $("form#new-order").submit(function(event) {
     event.preventDefault();
+    //Get Pizza properties from html form
     var selectedQuantity = $("input#quantity").val();
-    console.log(selectedQuantity);
     var selectedToppings = [];
-    console.log(selectedToppings);
     var selectedPizzaSize = $("#pizzaSize").val();
-    console.log(selectedPizzaSize);
 
     //Get values of checked boxes
     $.each($("input[name='toppings']:checked"), function() {
       selectedToppings.push($(this).val());
     });
 
+    //create a new Pizza object and calculate its price
     var newPizza = new Pizza(selectedQuantity, selectedToppings, selectedPizzaSize);
     var calculatedPrice = newPizza.calculatePrice();
 
+    //Give calculated price to html total span
     $("#total").text(calculatedPrice);
 
   });
