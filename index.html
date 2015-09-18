@@ -17,11 +17,7 @@
          <form id="new-order">
 
            <div class="form-group">
-             <select id="pizza-size">
-               <option value="small" id="small">Small</option>
-               <option value="small" id="medium">Medium</option>
-               <option value="small" id="large">Large</option>
-             </select>
+             <input id="quantity" type="number" class="form-control" placeholder="Enter Number of Pizzas" required>
            </div>
 
            <div class="form-group">
@@ -39,9 +35,15 @@
                <input type="checkbox" name="toppings" value ="anchovies" />Anchovies
              </p>
            </div>
+
            <div class="form-group">
-             <input id="quantity" type="text" class="form-control" placeholder="Enter Number of Pizzas" required>
+             <select id="pizzaSize">
+               <option value="small" id="small">Small</option>
+               <option value="medium" id="medium">Medium</option>
+               <option value="large" id="large">Large</option>
+             </select>
            </div>
+
            <span class="btn btn-primary" id="add-pizza">Add Pizza(s)</span>
            <button type="submit" class="btn btn-primary">Calculate Total</button>
          </form>
@@ -50,6 +52,8 @@
          <ul id="pizzas">
 
          </ul>
+
+         <h3>Your Total: $<span id="total"></span></h3>
        </div>
        <div class="col-md-6">
          <div id="show-pizza">

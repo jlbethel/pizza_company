@@ -1,9 +1,11 @@
+//Create Pizza Object
 function Pizza(quantity, toppings, pizzaSize) {
   this.quantity = quantity;
   this.toppings = toppings;
   this.pizzaSize = pizzaSize;
 };
 
+//Calculate Price Method
 Pizza.prototype.calculatePrice = function() {
   var pizzaSize = this.pizzaSize;
   var sizeCost = 0;
@@ -19,15 +21,28 @@ Pizza.prototype.calculatePrice = function() {
   return finalPrice;
 }
 
+//Jquery
+$(document).ready(function() {
 
-$("form#new-order").submit(function(event) {
-  event.preventDefault();
 
-  var selectedQuantity = parseInt($("input#quantity").val());
-  var selectedPizzaSize = $("#pizza-size")
-  var selectedToppings = [];
+  $("form#new-order").submit(function(event) {
+    event.preventDefault();
+    var selectedQuantity = $("input#quantity").val();
+    console.log(selectedQuantity);
+    var selectedToppings = [];
+    console.log(selectedToppings);
+    var selectedPizzaSize = $("#pizzaSize")
+    console.log(selectedPizzaSize);
 
-  $.each($("input[name="toppings"]:checked"), function() {
-    selectedToppings.push($(this).val());
+    //Get values of checked boxes
+    $.each($("input[name='toppings']:checked"), function() {
+      selectedToppings.push($(this).val());
+    });
+
+    var newPizza = new Pizza(selectedQuantity, selectedToppings, selectedPizzaSize);
+    var calculatedPrice = newPizza.calculatePrice();
+
+    $("#total").text(calculatedPrice);
+
   });
-};
+});
