@@ -31,7 +31,7 @@ $(document).ready(function() {
     console.log(selectedQuantity);
     var selectedToppings = [];
     console.log(selectedToppings);
-    var selectedPizzaSize = $("#pizzaSize")
+    var selectedPizzaSize = $("#pizzaSize").val();
     console.log(selectedPizzaSize);
 
     //Get values of checked boxes
