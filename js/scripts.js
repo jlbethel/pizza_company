@@ -26,8 +26,10 @@ $(document).ready(function() {
 
   $("#add-pizza").click(function() {
     var selectedPizzaName = $("input#pizzaName").val();
-    $("ul#pizzas").append(selectedPizzaName);
+    $("ul#pizzas").append("<li><span class='pizza animated bounceInLeft'>" + selectedPizzaName + "</span></li>");
   });
+
+  $("")
 
   $("form#new-order").submit(function(event) {
     event.preventDefault();
