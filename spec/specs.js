@@ -13,17 +13,17 @@ describe('Pizza', function() {
     expect(testPizza.pizzaSize).to.equal("Medium");
   });
 
-  it("calculates the cost of a small pizza with one topping", function () {
+  it("calculates the cost of a small pizza with one topping", function() {
     var testPizza = new Pizza(1, ["Mushrooms"], "Small");
     expect(testPizza.calculatePrice()).to.equal(8);
   });
 
-  it("calculates the cost of a medium pizza with one topping", function () {
+  it("calculates the cost of a medium pizza with one topping", function() {
     var testPizza = new Pizza(1, ["Mushrooms"], "Medium");
     expect(testPizza.calculatePrice()).to.equal(11);
   });
 
-  it("calculates the cost of a Large pizza with multiple toppings", function () {
+  it("calculates the cost of a Large pizza with multiple toppings", function() {
     var testPizza = new Pizza(1, ["Mushrooms", "Pepperoni", "ExtraCheese"], "Large");
     expect(testPizza.calculatePrice()).to.equal(16);
   });
@@ -31,5 +31,10 @@ describe('Pizza', function() {
   it("calculates the cost of a Large pizza with multiple toppings and a quantity greater than one", function () {
     var testPizza = new Pizza(3, ["Mushrooms", "Pepperoni", "ExtraCheese"], "Large");
     expect(testPizza.calculatePrice()).to.equal(48);
+  });
+
+  it("calculates the cost of a Large pizza with no toppings", function() {
+    var testPizza = new Pizza(1, ["Mushrooms", "Pepperoni", "ExtraCheese"], "Large");
+    expect(testPizza.calculatePrice()).to.equal(16);
   });
 });
